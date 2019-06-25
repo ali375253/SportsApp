@@ -1,0 +1,49 @@
+﻿@model SportsApp.Models.TestDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>ADD NEW ATHLETE TO TEST</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AthleteName" class="control-label"></label>
+                <select asp-for="AthleteName" class="form-control">
+                    <option value="Queen Jacobi">Queen Jacobi</option>
+                    <option value="Magen Faye">Magen Faye</option>
+                    <option value="Delicia Ledonne">Delicia Ledonne</option>
+                    <option value="Camille Grantham">Camille Grantham</option>
+                    <option value="Marc  Voth">Marc  Voth</option>
+                    <option value="Randy Rondon">Randy Rondon</option>
+                    <option value="Delora Saville">Delora Saville</option>
+                    <option value="Rosario Reuben">Rosario Reuben</option>
+                    <option value="Lula Uhlman">Lula Uhlman</option>
+                </select>
+                <span asp-validation-for="AthleteName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Distance" class="control-label"></label>
+                <input asp-for="Distance" class="form-control" />
+                <span asp-validation-for="Distance" class="text-danger"></span>
+            </div>
+            <input asp-for="TestId" class="form-control" type="hidden"/>
+            <div class="form-group">
+                <input type="submit" value="SAVE" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

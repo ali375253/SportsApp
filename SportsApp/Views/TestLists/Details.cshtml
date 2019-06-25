@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SportsApp.Models.TestDetail>
+
+@{
+    ViewData["Title"] = "Test Details";
+}
+
+<h2>TEST DETAILS</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AthleteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AthleteName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Distance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        <a style="margin: 10px" class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+            <a style="margin: 10px"  class="btn btn-info" asp-action="Create" asp-route-id=@ViewContext.RouteData.Values["id"]>ADD NEW ATHLETE TO TEST</a>
+            <a style="margin: 10px" class="btn btn-danger" asp-action="Delete" asp-route-id=@ViewContext.RouteData.Values["id"]>DELETE TEST</a>
+            <a style="margin: 10px" class="btn btn-primary" asp-action="Index">Back to List</a>
+        }
+    </tbody>
+</table>
+
+
